@@ -5,6 +5,7 @@ import com.Trakya.OrtayaKarisik.Services.KullaniciService;
 import com.Trakya.OrtayaKarisik.dto.UserDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,7 +30,6 @@ public class KullaniciController {
     @GetMapping("/{kullaniciID}")
     public User getOneUser(@PathVariable Long kullaniciID){
         return kullaniciService.getOneUser(kullaniciID);
-
     }
 
     @PutMapping("/{kullaniciID}")
