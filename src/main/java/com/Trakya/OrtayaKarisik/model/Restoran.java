@@ -32,7 +32,6 @@ public class Restoran {
     int RestoranKapasitesi;
 
     int RestoranPuanı;
-
     String ResotranEcte;
 
 
