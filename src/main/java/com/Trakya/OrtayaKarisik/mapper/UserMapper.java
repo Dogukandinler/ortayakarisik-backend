@@ -3,6 +3,7 @@ package com.Trakya.OrtayaKarisik.mapper;
 import com.Trakya.OrtayaKarisik.model.User;
 import com.Trakya.OrtayaKarisik.dto.UserDto;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper

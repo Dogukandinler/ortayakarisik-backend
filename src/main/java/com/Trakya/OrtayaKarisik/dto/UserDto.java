@@ -2,6 +2,8 @@ package com.Trakya.OrtayaKarisik.dto;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+
+import com.Trakya.OrtayaKarisik.model.Konum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,4 +16,5 @@ public class UserDto {
   private String userName;
   private String email;
   private String telNo;
+  private Konum konum;
 }

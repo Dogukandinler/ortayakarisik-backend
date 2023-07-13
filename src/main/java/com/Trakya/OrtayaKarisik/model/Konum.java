@@ -24,5 +24,4 @@ public class Konum {
     private   Short KapıNo;
 
 
-
 }

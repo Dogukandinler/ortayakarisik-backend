@@ -29,7 +29,10 @@ public class Restoran {
   int RestoranKapasitesi;
 
   int RestoranPuanı;
+
   String ResotranEcte;
+
+  String restoranEmail;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "konum_id", nullable = false)
@@ -37,7 +40,7 @@ public class Restoran {
   Konum konum;
 
   @JsonIgnoreProperties("restoran")
-  @OneToMany(mappedBy = "restoran", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "restoran", cascade = CascadeType.ALL)
   @JsonManagedReference
   private List<Menu> menus;
 
@@ -46,4 +49,6 @@ public class Restoran {
   String RestoranDetayliAciklama;
 
   @Transient public boolean isFavorite;
+
+  private  String imgUrl;
 }

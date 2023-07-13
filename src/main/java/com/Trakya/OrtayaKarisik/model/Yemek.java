@@ -24,6 +24,11 @@ public class Yemek {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
+    private  Long fiyatı;
+
+    private  String imgUrl;
+
+
     // Getter ve Setter metotları
 
     // Diğer alanlar ve metotlar
