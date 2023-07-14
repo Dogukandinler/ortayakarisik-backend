@@ -8,5 +8,6 @@ public interface RezervasyonRepository extends JpaRepository<Rezervasyon,Long> {
     List<Rezervasyon> findAllByUser_Id(Long kullaniciId);
 
     List<Rezervasyon> findAllById(Long restoranId);
+    
 
 }

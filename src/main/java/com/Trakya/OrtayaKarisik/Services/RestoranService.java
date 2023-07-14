@@ -25,7 +25,7 @@ public class RestoranService {
     this.kullaniciService = kullaniciService;
   }
 
-  public List<Restoran> getAllRestoran() {
+  public List<Restoran> getAllRestoran(String search) {
 
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
@@ -37,6 +37,17 @@ public class RestoranService {
             .collect(Collectors.toSet());
 
     var restorants = restoranRepository.findAll();
+
+    if (search != null && search.trim().length() > 0) {
+      restorants =
+          restorants.stream()
+              .filter(
+                  x ->
+                      x.getResotranEcte().toLowerCase().contains(search.toLowerCase())
+                          || x.getRestoranAdi().toLowerCase().contains(search.toLowerCase())
+                          || x.getKonum().getIl().toLowerCase().contains(search.toLowerCase()))
+              .toList();
+    }
 
     restorants.forEach(x -> x.setFavorite(favoriteRestaurantIds.contains(x.getId())));
 

@@ -78,6 +78,12 @@ public class RezervasyonService {
     } else return null;
   }
 
+  public static void deleteOneRezervasyonById(Long RezervasyonId) {
+    rezervasyonRepository.deleteById(RezervasyonId);
+  }
+
+
+
   public Rezervasyon updateOneRezervationById(
       Long rezervasyonId, RezervationUpdateRequest updateRezervation) {
     Optional<Rezervasyon> rezervasyon = rezervasyonRepository.findById(rezervasyonId);

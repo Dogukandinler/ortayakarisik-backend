@@ -1,5 +1,6 @@
 package com.Trakya.OrtayaKarisik.Controllers;
 
+import com.Trakya.OrtayaKarisik.Services.YorumService;
 import com.Trakya.OrtayaKarisik.model.Rezervasyon;
 import com.Trakya.OrtayaKarisik.Requests.RezervationCreateRequest;
 import com.Trakya.OrtayaKarisik.Requests.RezervationUpdateRequest;
@@ -36,6 +37,11 @@ public class RezervasyonController {
     @PutMapping("/{RezervasyonId}")
     public Rezervasyon updateOneComment(@PathVariable Long RezervasyonId, @RequestBody RezervationUpdateRequest updateRezervation){
         return rezervasyonService.updateOneRezervationById(RezervasyonId,updateRezervation);
+    }
+
+    @DeleteMapping("/{RezervasyonId}")
+    public void deleteOneRezervation(@PathVariable Long RezervasyonId){
+        RezervasyonService.deleteOneRezervasyonById(RezervasyonId);
     }
 }
 

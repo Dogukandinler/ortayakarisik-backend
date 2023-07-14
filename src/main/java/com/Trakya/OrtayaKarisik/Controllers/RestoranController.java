@@ -5,10 +5,7 @@ import com.Trakya.OrtayaKarisik.Services.RestoranService;
 import java.util.List;
 
 import com.Trakya.OrtayaKarisik.responses.RestoranResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/restoran")
@@ -21,8 +18,8 @@ public class RestoranController {
     }
 
     @GetMapping
-    public List<Restoran> getAllRestoran(){
-        return restoranService.getAllRestoran();
+    public List<Restoran> getAllRestoran(@RequestParam(required = false) String search){
+        return restoranService.getAllRestoran(search);
 
     }
     @GetMapping("/{restoranID}")
