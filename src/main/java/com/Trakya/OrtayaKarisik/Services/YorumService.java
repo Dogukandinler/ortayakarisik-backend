@@ -58,13 +58,14 @@ public class YorumService {
   public Yorum createOneComment(CommentCreateRequest newCommentRequest) {
     User user = kullaniciService.getOneUser(newCommentRequest.getKullaniciId());
     Restoran restoran = restoranService.getOneRestoran(newCommentRequest.getRestoranId());
-    if (user != null && restoran != null) {
+
+    if (user != null
+        && restoran != null
+        && !yorumRepository.existsYorumByRestoran_Id_AndUser_Id(restoran.getId(), user.getId())) {
       Yorum toSave = new Yorum();
-      toSave.setId(newCommentRequest.getId());
       toSave.setPuan(newCommentRequest.getPuan());
       toSave.setUser(user);
       toSave.setRestoran(restoran);
-      toSave.setYorumTarihi(newCommentRequest.getYorumTarihi());
       toSave.setYorumIcerigi(newCommentRequest.getYorumIcerigi());
       return yorumRepository.save(toSave);
     } else return null;

@@ -1,9 +1,12 @@
 package com.Trakya.OrtayaKarisik.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.Getter;
@@ -21,7 +24,8 @@ public abstract class BaseEntity {
     Long Id;
 
     @CreationTimestamp
-    private LocalDateTime createdDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate createdDate;
 
     @UpdateTimestamp
     private Date updateDate;

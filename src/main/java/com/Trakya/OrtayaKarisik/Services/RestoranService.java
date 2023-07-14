@@ -44,6 +44,19 @@ public class RestoranService {
   }
 
   public Restoran getOneRestoran(Long restoranId) {
-    return restoranRepository.findById(restoranId).orElse(null);
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    User user = kullaniciService.getOneUserByUserName(auth.getName());
+    Set<Long> favoriteRestaurantIds =
+        favoriteRestaurantService.getFavoriteRestaurantsByUser(user.getId()).stream()
+            .map(Restoran::getId)
+            .collect(Collectors.toSet());
+
+    var restorant = restoranRepository.findById(restoranId).orElse(null);
+
+    if (favoriteRestaurantIds.contains(restorant.getId())) {
+      restorant.setFavorite(true);
+    }
+
+    return restorant;
   }
 }

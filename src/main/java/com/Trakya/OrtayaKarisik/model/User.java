@@ -18,6 +18,8 @@ public class User extends BaseEntity{
 
     private  String telNo;
 
+    private  String imgUrl;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "konum_id")
     Konum konum;

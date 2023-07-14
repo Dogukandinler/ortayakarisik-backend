@@ -70,7 +70,7 @@ public class RezervasyonService {
               + newRezervationRequest.getGun().toString()
               + "\nSaat: "
               + newRezervationRequest.getSaat().toString();
-        kullanıcıMail.setSubject("Rezervasyon Gönderildi");
+        kullanıcıMail.setSubject("Rezervasyon  Yapıldı");
         kullanıcıMail.setRecipient("dogikan12@hotmail.com");
         kullanıcıMail.setMsgBody(msgBody);
         emailService.sendSimpleMail(kullanıcıMail);

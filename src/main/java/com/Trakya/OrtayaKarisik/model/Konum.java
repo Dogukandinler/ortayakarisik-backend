@@ -23,5 +23,9 @@ public class Konum {
 
     private   Short KapıNo;
 
+    private   double Lng;
+
+    private  double Lat;
+
 
 }

@@ -56,13 +56,8 @@ public class SecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
                 .requestMatchers(
-                        "/h2-console/**",
-                        "/auth/**",
-                        "/swagger-resources/**",
-                        "/swagger-ui.html/**",
-                        "/swagger-resources/**",
-                        "/swagger-ui/**",
-                        "/v3/api-docs/**");
+                        "/auth/**"
+);
     }
 
     @Bean
@@ -76,13 +71,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests(auth -> {
                     auth.requestMatchers(
-                            HttpMethod.GET,
-                            "/api/restaurant/**",
-                            "/api/menu/**",
-                            "/api/food/**",
-                            "/api/category/**",
-                            "/api/review/**",
-                            "/api/file/download/**"
+                            HttpMethod.GET
                     ).permitAll();
                     auth.anyRequest().authenticated();
                 })

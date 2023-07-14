@@ -10,11 +10,8 @@ import org.hibernate.annotations.OnDeleteAction;
 @Data
 @Entity
 @Table(name = "yorum")
-public class Yorum {
+public class Yorum  extends BaseEntity {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long Id;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "kullanici_id", nullable = false)
@@ -31,5 +28,4 @@ public class Yorum {
 
   Short Puan;
 
-  Date YorumTarihi;
 }

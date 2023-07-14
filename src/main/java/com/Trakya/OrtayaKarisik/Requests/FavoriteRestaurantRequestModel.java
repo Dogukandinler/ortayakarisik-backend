@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 public class FavoriteRestaurantRequestModel {
 
   private Long id;
-  private Long userId;
-  private Long restaurantId;
+  private Long kullaniciId;
+  private Long restoranId;
 }

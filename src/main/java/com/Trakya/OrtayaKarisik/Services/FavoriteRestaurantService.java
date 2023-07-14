@@ -29,9 +29,9 @@ public class FavoriteRestaurantService {
   public void addToFavorite(FavoriteRestaurantRequestModel requestModel) {
     var existing =
         favoriteRestaurantRepository.findByRestoran_IdAndUser_Id(
-            requestModel.getRestaurantId(), requestModel.getUserId());
-    var user = userService.getOneUser(requestModel.getUserId());
-    var restaurant = restaurantService.getOneRestoran(requestModel.getRestaurantId());
+            requestModel.getRestoranId(), requestModel.getKullaniciId());
+    var user = userService.getOneUser(requestModel.getKullaniciId());
+    var restaurant = restaurantService.getOneRestoran(requestModel.getRestoranId());
     if (existing.isEmpty()) {
       favoriteRestaurantRepository.save(
           FavoriteRestaurant.builder().user(user).restoran(restaurant).build());
@@ -41,7 +41,7 @@ public class FavoriteRestaurantService {
   public void removeFromFavorite(FavoriteRestaurantRequestModel requestModel) {
     var existing =
         favoriteRestaurantRepository.findByRestoran_IdAndUser_Id(
-            requestModel.getRestaurantId(), requestModel.getUserId());
+            requestModel.getRestoranId(), requestModel.getKullaniciId());
     existing.ifPresent(
         favoriteRestaurant -> favoriteRestaurantRepository.deleteById(favoriteRestaurant.getId()));
   }
